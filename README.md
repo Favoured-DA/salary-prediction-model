@@ -11,4 +11,5 @@ Random Forest Regressor for predicting monthly salary based on employee features
 1. Clone the repo:
    ```bash
    git clone https://github.com/Favoured-DA/salary-prediction-model.git
+
    cd salary-prediction-model
