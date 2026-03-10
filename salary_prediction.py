@@ -14,13 +14,13 @@ logger = logging.getLogger(__name__)
 
 np.random.seed(42)  # Global seed for reproducibility
 
-def load_data(file_path='1000_salary_dataset.csv', url=None):
-    try:
+def load_data(file_path=r'C:\Users\USER\Desktop\salary-prediction-model\salary-prediction-model\1000_salary_dataset.csv', url=None):
+    try: 
         if url:
             df = pd.read_csv(url)
         else:
             if not os.path.exists(file_path):
-                raise FileNotFoundError(f"Dataset '{file_path}' not found.")
+                raise FileNotFoundError(f"Dataset '{file_path}' not found. Check the path!")
             df = pd.read_csv(file_path)
         logger.info("Dataset loaded successfully.")
         return df
@@ -93,7 +93,12 @@ def train_and_evaluate(df_cleaned):
 
 # Example usage
 if __name__ == "__main__":
-    df = load_data()  # Or load_data(url="https://example.com/dataset.csv")
+    # Now uses the absolute path provided
+    df = load_data()  
+    
+    # We can skip the example URL load to avoid confusion
+    # load_data(url="https://example.com/dataset.csv") 
+    
     df_cleaned = clean_and_engineer_features(df)
     model, results, sample = train_and_evaluate(df_cleaned)
     logger.info("\nCleaned Feature Sample:")
